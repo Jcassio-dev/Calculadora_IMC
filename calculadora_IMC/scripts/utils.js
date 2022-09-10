@@ -20,9 +20,9 @@ export function VerificaClassificacaoIMC(data){
         return 'Obesidade Grau I'
     }
     else if(data >= 35 && data < 40 ){
-        return 'Obesidade Grau II (Severa)'
+        return 'Obesidade Grau II (severa)'
     }
     else{
-        return 'Obesidade Grau III (Mórbida)'
+        return 'Obesidade Grau III (morbida)'
     }
 }

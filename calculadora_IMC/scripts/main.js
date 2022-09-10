@@ -4,8 +4,18 @@ import { notANumber, CalculateIMC, VerificaClassificacaoIMC} from './utils.js'
 
 const inputWeight = document.querySelector('#weight')
 const inputHeight = document.querySelector('#height')
+
 const btnCalcula = document.querySelector('#btnCalcula')
 
+inputWeight.addEventListener('keyup', () => {
+    const inputValue = inputWeight.value
+    notANumber(inputValue) ? AlertError.open() : AlertError.close()
+})
+
+inputHeight.addEventListener('keyup', () => {
+    const inputValue = inputHeight.value
+    notANumber(inputValue) ? AlertError.open() : AlertError.close()
+})
 
 btnCalcula.addEventListener('click', ConsultInputsData)
 window.addEventListener('keydown', e => {
@@ -13,8 +23,6 @@ window.addEventListener('keydown', e => {
         ConsultInputsData()
     }
 })
-inputWeight.addEventListener('keydown', VerificaTecla)
-inputHeight.addEventListener('keydown', VerificaTecla)
 
 
 
@@ -24,9 +32,6 @@ function DisplayResultMessage(result){
     Modal.textAviso.innerText = VerificaClassificacaoIMC(result)
 }
 
-function VerificaTecla(e){
-        notANumber(e.key)  ? AlertError.open() : AlertError.close()
-}
 
 function ConsultInputsData(){
     const weight = inputWeight.value
